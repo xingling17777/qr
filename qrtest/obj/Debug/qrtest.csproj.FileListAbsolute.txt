@@ -1,0 +1,9 @@
+F:\OneDrive\文档\Finish\qrtest\qrtest\bin\Debug\qrtest.exe.config
+F:\OneDrive\文档\Finish\qrtest\qrtest\bin\Debug\qrtest.exe
+F:\OneDrive\文档\Finish\qrtest\qrtest\bin\Debug\qrtest.pdb
+F:\OneDrive\文档\Finish\qrtest\qrtest\obj\Debug\qrtest.csprojResolveAssemblyReference.cache
+F:\OneDrive\文档\Finish\qrtest\qrtest\obj\Debug\qrtest.Properties.Resources.resources
+F:\OneDrive\文档\Finish\qrtest\qrtest\obj\Debug\qrtest.csproj.GenerateResource.Cache
+F:\OneDrive\文档\Finish\qrtest\qrtest\obj\Debug\qrtest.exe
+F:\OneDrive\文档\Finish\qrtest\qrtest\obj\Debug\qrtest.pdb
+F:\OneDrive\文档\Finish\qrtest\qrtest\obj\Debug\qrtest.Form1.resources
