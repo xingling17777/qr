@@ -7,3 +7,12 @@ F:\OneDrive\文档\Finish\qrtest\qrtest\obj\Debug\qrtest.csproj.GenerateResource
 F:\OneDrive\文档\Finish\qrtest\qrtest\obj\Debug\qrtest.exe
 F:\OneDrive\文档\Finish\qrtest\qrtest\obj\Debug\qrtest.pdb
 F:\OneDrive\文档\Finish\qrtest\qrtest\obj\Debug\qrtest.Form1.resources
+E:\tbc\qr\qrtest\bin\Debug\qrtest.exe.config
+E:\tbc\qr\qrtest\obj\Debug\qrtest.exe
+E:\tbc\qr\qrtest\obj\Debug\qrtest.pdb
+E:\tbc\qr\qrtest\bin\Debug\qrtest.exe
+E:\tbc\qr\qrtest\bin\Debug\qrtest.pdb
+E:\tbc\qr\qrtest\obj\Debug\qrtest.csprojResolveAssemblyReference.cache
+E:\tbc\qr\qrtest\obj\Debug\qrtest.Form1.resources
+E:\tbc\qr\qrtest\obj\Debug\qrtest.Properties.Resources.resources
+E:\tbc\qr\qrtest\obj\Debug\qrtest.csproj.GenerateResource.Cache

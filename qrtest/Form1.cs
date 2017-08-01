@@ -13,29 +13,28 @@ using System.Runtime.InteropServices;
 
 namespace qrtest
 {
-    
 
     // 调用  
-   
+
     public partial class Form1 : Form
     {
         ArrayList customer = new ArrayList();
         ArrayList current = new ArrayList();
         ArrayList localScan = new ArrayList();
-       static int n = 0;
+        static int n = 0;
         static int scancount = 0;
         public Form1()
         {
             InitializeComponent();
         }
 
-       
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
             //系统显示前加载客户数据
-            
-            if (File.Exists(Directory.GetCurrentDirectory()+"\\customer.txt"))
+
+            if (File.Exists(Directory.GetCurrentDirectory() + "\\customer.txt"))
             {
                 FileStream fs = new FileStream(Directory.GetCurrentDirectory() + "\\customer.txt", FileMode.Open);
                 StreamReader sr = new StreamReader(fs);
@@ -65,42 +64,36 @@ namespace qrtest
             }
         }
 
-       
+
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == 13) { 
-
-            if (textBox1.Text.Trim().ToString() != "")
+            if (e.KeyChar == 13)
             {
+
+                if (textBox1.Text.Trim().ToString() != "")
+                {
                     string sy = textBox1.Text.Trim().ToString();
 
 
                     label4.Text = "";
-                    label2.Text = "";
+
                     label3.Text = "";
                     textBox1.Text = "";
                     if (current.IndexOf(sy) != -1)
                     {
-                        
-                        if(localScan.IndexOf(sy)!=-1)
+
+                        if (localScan.IndexOf(sy) != -1)
                         {
-label4.Text = "当前重复的二维码为：" + sy+"";
+                            label4.Text = "当前重复的二维码为：" + sy + "";
                             BeepUp.Beep(500, 2000);
-                        MessageBox.Show("当前箱内重复的软管，请继续！"); 
+                            MessageBox.Show("该二维码上次出现于：第" + ((current.IndexOf(sy) + 1) / 447 + 1) + "箱第" + ((current.IndexOf(sy) + 1) % 447 / 149 + 1) + "托盘第" + ((current.IndexOf(sy) + 1) % 447 % 149) + "支");
                         }
-                        else
-                        {
-                            label4.Text = "当前重复的数据为：" + sy + "";
-                            BeepUp.Beep(500, 2000);
-                            MessageBox.Show("非当前箱内重复的软管，请放置等待处理！");
-                        }
-                                               
                         return;
                     }
+                    label2.Text = "";
 
 
-                   
                     if (customer.IndexOf(sy) == -1)
                     {
                         label3.Text = "未在客户提供的数据内：" + sy;
@@ -110,9 +103,9 @@ label4.Text = "当前重复的二维码为：" + sy+"";
                     }
                     current.Add(sy);
                     localScan.Add(sy);
-                    label2.Text = "当前已扫描" + (n+1) + "支软管！\n累计扫描"+((n+scancount+1)/447)+"箱"+ ((n + scancount + 1) % 447) + "软管!";                
+                    label2.Text = "当前为:\n第" + ((n + scancount + 1) / 447 + 1) + "箱第" + ((n + scancount + 1) % 447 / 149 + 1) + "托盘第" + ((n + scancount + 1) % 149) + "支";
                     n++;
-                   if(current.Count % 447==0)
+                    if (current.Count % 447 == 0)
                     {
                         FileStream fs = new FileStream(Directory.GetCurrentDirectory() + "\\current.txt", FileMode.Create);
                         StreamWriter sw = new StreamWriter(fs);
@@ -135,25 +128,25 @@ label4.Text = "当前重复的二维码为：" + sy+"";
                         fk.Close();
                         localScan.Clear();
                     }
-                
+
+                }
             }
         }
-    }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            FileStream fs = new FileStream(Directory.GetCurrentDirectory() + "\\current.txt",FileMode.Create);
+            FileStream fs = new FileStream(Directory.GetCurrentDirectory() + "\\current.txt", FileMode.Create);
             StreamWriter sw = new StreamWriter(fs);
-            foreach(string s in current)
+            foreach (string s in current)
             {
                 sw.WriteLine(s);
             }
             sw.Close();
             fs.Close();
-            if(localScan.Count!=0)
+            if (localScan.Count != 0)
             {
-                string nameby = DateTime.Now.ToString().Replace(":", "").Replace("/","").Replace("-","").Replace(" ","");
-                FileStream fk = new FileStream(Directory.GetCurrentDirectory() + "\\" + nameby+ ".txt", FileMode.Create);
+                string nameby = DateTime.Now.ToString().Replace(":", "").Replace("/", "").Replace("-", "").Replace(" ", "");
+                FileStream fk = new FileStream(Directory.GetCurrentDirectory() + "\\" + nameby + ".txt", FileMode.Create);
                 StreamWriter sk = new StreamWriter(fk);
                 foreach (string s in localScan)
                 {
@@ -169,9 +162,9 @@ label4.Text = "当前重复的二维码为：" + sy+"";
         private void button1_Click(object sender, EventArgs e)
         {
             ArrayList tempSum = new ArrayList();
-            foreach(string s in customer)
+            foreach (string s in customer)
             {
-                if(current.IndexOf(s)==-1)
+                if (current.IndexOf(s) == -1)
                 {
                     tempSum.Add(s);
                 }
